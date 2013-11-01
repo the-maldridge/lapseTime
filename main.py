@@ -4,7 +4,7 @@ import settings
 import logging
 
 def run():
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=settings.loglevel)
     logger = logging.getLogger(__name__)
     logger.info("Welcome to LapseTime".center(45, '='))
     capture = camera.Capture(settings.cameraID)
