@@ -3,15 +3,16 @@ import logging
 import json
 
 class Capture():
-    def __init__(self, camNum=0):
+    def __init__(self, camNum=0, loglevel=logging.INFO):
+        self.logger = logging.getLogger(__name__)
         self.camNum = camNum
         self.cam = cv.CaptureFromCAM(self.camNum)
-        logging.info("Opened camera {0}".format(self.camNum))
+        self.logger.info("Opened camera {0}".format(self.camNum))
 
     def updateFrame(self):
         self.img = cv.QueryFrame(self.cam)
-        logging.info("Updated frame on camera {0}".format(self.camNum))
+        self.logger.debug("Updated frame on camera {0}".format(self.camNum))
 
     def saveFrame(self, hash):
         cv.SaveImage(str(hash) + ".png", self.img)
-        logging.info("Saved frame with hash: {0}".format(hash))
+        self.logger.info("Saved frame with hash: {0}".format(hash))
