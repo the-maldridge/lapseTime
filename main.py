@@ -17,7 +17,7 @@ def run():
             logger.warning("C-c was recieved")
             exit()
         except:
-            logger.error("An error occured or C-c was keyed -- EXITING!")
+            logger.error("An error occured -- EXITING!")
             exit()
 
 if __name__ == "__main__":
