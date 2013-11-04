@@ -1,9 +1,11 @@
 import camera
+import cv
 import time
 import settings
 import logging
 
 def run():
+
     logging.basicConfig(level=settings.loglevel)
     logger = logging.getLogger(__name__)
     logger.info("Welcome to LapseTime".center(45, '='))
