@@ -4,6 +4,7 @@ import settings
 import logging
 
 def run():
+    interval=0
     logging.basicConfig(level=settings.loglevel)
     logger = logging.getLogger(__name__)
     logger.info("Welcome to LapseTime".center(45, '='))
@@ -11,13 +12,13 @@ def run():
     while True:
         try:
             capture.updateFrame()
-            capture.saveFrame(int(time.time()))
-            time.sleep(settings.frameDelay)
+            if (interval%settings.frameDelay==0):
+                capture.saveFrame(int(time.time()))
+                intervalv=0
+            interval=interval+1
+            time.sleep(1)
         except KeyboardInterrupt:
             logger.warning("C-c was recieved")
-            exit()
-        except:
-            logger.error("An error occured -- EXITING!")
             exit()
 
 if __name__ == "__main__":

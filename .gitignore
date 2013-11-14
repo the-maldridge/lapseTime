@@ -39,4 +39,4 @@ nosetests.xml
 *.py~
 *.pyc
 *.png
-
+*.mp4

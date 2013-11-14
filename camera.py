@@ -16,5 +16,5 @@ class Capture():
         self.logger.debug("Updated frame on camera {0}".format(self.camNum))
 
     def saveFrame(self, hash):
-        cv.SaveImage(str(hash) + ".png", self.img)
+        cv.SaveImage("./images/"+str(hash) + ".png", self.img)
         self.logger.info("Saved frame with hash: {0}".format(hash))
