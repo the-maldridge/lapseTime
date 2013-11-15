@@ -24,7 +24,7 @@ for i, name in enumerate(filenames):
 #figure out the parameters for copy list
 runTime = float(raw_input("How long should the film be in minutes? "))
 runTime = runTime * 60
-frameRate = int(raw_input("What frame-rate (in fps)?" ))
+frameRate = int(raw_input("What frame-rate (in fps)[28FPS is suggested]? "))
 
 #compute the number of frames needed
 numFrames = runTime * frameRate
@@ -50,6 +50,7 @@ print "File copy completed in " + str(time.time()-startTime) + " seconds."
 
 #Render the film
 startTime = time.time()
+print "Rendering Preview -- TIMESCALE WILL NOT BE ACCURATE".center(80, "-")
 print "Beginning Render"
-os.system("ffmpeg -r {0} -i imageset/image%d.png timelapse.mp4".format(frameRate))
-print "Render completed in " + str(time.time()-startTime) + " seconds."
+os.system("ffmpeg -r {0} -i imageset/image%d.png -r {0} timelapse.mp4".format(frameRate))
+print "Render completed in " + str(time.time()-startTime) + " seconds.".center(80, "-")
