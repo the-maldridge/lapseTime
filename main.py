@@ -1,4 +1,5 @@
 import camera
+import cv
 import time
 import settings
 import logging
@@ -14,7 +15,7 @@ def run():
             capture.updateFrame()
             if (interval%settings.frameDelay==0):
                 capture.saveFrame(int(time.time()))
-                intervalv=0
+                interval=0
             interval=interval+1
             time.sleep(1)
         except KeyboardInterrupt:

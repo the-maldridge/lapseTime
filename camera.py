@@ -7,12 +7,10 @@ class Capture():
         self.logger = logging.getLogger(__name__)
         self.camNum = camNum
         self.cam = cv.CaptureFromCAM(self.camNum)
-        cv.NamedWindow("ViewFinder", 1)
         self.logger.info("Opened camera {0}".format(self.camNum))
 
     def updateFrame(self):
         self.img = cv.QueryFrame(self.cam)
-        #cv.ShowImage("ViewFinder", self.img)
         self.logger.debug("Updated frame on camera {0}".format(self.camNum))
 
     def saveFrame(self, hash):
